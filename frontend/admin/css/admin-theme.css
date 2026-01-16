@@ -1,0 +1,517 @@
+/* Admin Theme Styles */
+/* Professional dark/light theme variables and color scheme */
+
+:root {
+    /* Primary Colors */
+    --primary-color: #007bff;
+    --primary-hover: #0056b3;
+    --primary-light: #e3f2fd;
+    --primary-dark: #004085;
+
+    /* Secondary Colors */
+    --secondary-color: #6c757d;
+    --secondary-hover: #545b62;
+    --secondary-light: #f8f9fa;
+
+    /* Success Colors */
+    --success-color: #28a745;
+    --success-hover: #1e7e34;
+    --success-light: #d4edda;
+    --success-dark: #155724;
+
+    /* Danger Colors */
+    --danger-color: #dc3545;
+    --danger-hover: #bd2130;
+    --danger-light: #f8d7da;
+    --danger-dark: #721c24;
+
+    /* Warning Colors */
+    --warning-color: #ffc107;
+    --warning-hover: #e0a800;
+    --warning-light: #fff3cd;
+    --warning-dark: #856404;
+
+    /* Info Colors */
+    --info-color: #17a2b8;
+    --info-hover: #138496;
+    --info-light: #d1ecf1;
+    --info-dark: #0c5460;
+
+    /* Neutral Colors */
+    --white: #ffffff;
+    --gray-50: #f8f9fa;
+    --gray-100: #e9ecef;
+    --gray-200: #dee2e6;
+    --gray-300: #ced4da;
+    --gray-400: #adb5bd;
+    --gray-500: #6c757d;
+    --gray-600: #495057;
+    --gray-700: #343a40;
+    --gray-800: #212529;
+    --gray-900: #000000;
+
+    /* Background Colors */
+    --bg-primary: #f8f9fa;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #f8f9fa;
+    --bg-hover: #f8f9fa;
+    --bg-active: #e3f2fd;
+
+    /* Border Colors */
+    --border-color: #dee2e6;
+    --border-light: #e9ecef;
+    --border-focus: #007bff;
+
+    /* Text Colors */
+    --text-primary: #212529;
+    --text-secondary: #495057;
+    --text-muted: #6c757d;
+    --text-light: #ffffff;
+
+    /* Shadow */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.2);
+
+    /* Border Radius */
+    --border-radius-sm: 4px;
+    --border-radius-md: 6px;
+    --border-radius-lg: 8px;
+
+    /* Transitions */
+    --transition-fast: 0.15s ease-in-out;
+    --transition-normal: 0.2s ease;
+    --transition-slow: 0.3s ease;
+
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 3rem;
+
+    /* Typography */
+    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 1.5rem;
+    --font-size-2xl: 1.75rem;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* Z-index layers */
+    --z-dropdown: 1000;
+    --z-sticky: 1020;
+    --z-fixed: 1030;
+    --z-modal-backdrop: 1040;
+    --z-modal: 1050;
+    --z-popover: 1060;
+    --z-tooltip: 1070;
+}
+
+/* Dark Theme Variables (for future implementation) */
+[data-theme="dark"] {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --bg-tertiary: #3a3a3a;
+    --bg-hover: #404040;
+    --bg-active: #4a5568;
+
+    --text-primary: #ffffff;
+    --text-secondary: #e2e8f0;
+    --text-muted: #a0aec0;
+
+    --border-color: #4a5568;
+    --border-light: #2d3748;
+}
+
+/* Button Theme Overrides */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: 1px solid var(--primary-color);
+}
+
+.btn-primary:hover:not(:disabled) {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    border: 1px solid var(--secondary-color);
+}
+
+.btn-secondary:hover:not(:disabled) {
+    background-color: var(--secondary-hover);
+    border-color: var(--secondary-hover);
+}
+
+.btn-success {
+    background-color: var(--success-color);
+    color: var(--text-light);
+    border: 1px solid var(--success-color);
+}
+
+.btn-success:hover:not(:disabled) {
+    background-color: var(--success-hover);
+    border-color: var(--success-hover);
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+    color: var(--text-light);
+    border: 1px solid var(--danger-color);
+}
+
+.btn-danger:hover:not(:disabled) {
+    background-color: var(--danger-hover);
+    border-color: var(--danger-hover);
+}
+
+.btn-warning {
+    background-color: var(--warning-color);
+    color: var(--text-primary);
+    border: 1px solid var(--warning-color);
+}
+
+.btn-warning:hover:not(:disabled) {
+    background-color: var(--warning-hover);
+    border-color: var(--warning-hover);
+}
+
+.btn-info {
+    background-color: var(--info-color);
+    color: var(--text-light);
+    border: 1px solid var(--info-color);
+}
+
+.btn-info:hover:not(:disabled) {
+    background-color: var(--info-hover);
+    border-color: var(--info-hover);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+}
+
+.btn-outline:hover:not(:disabled) {
+    background-color: var(--bg-hover);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+/* Form Theme Overrides */
+.form-control {
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.form-control:focus {
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    background-color: var(--bg-secondary);
+}
+
+.form-control::placeholder {
+    color: var(--text-muted);
+}
+
+/* Status Badge Theme */
+.status-badge.pending {
+    background-color: var(--warning-light);
+    color: var(--warning-dark);
+}
+
+.status-badge.approved {
+    background-color: var(--success-light);
+    color: var(--success-dark);
+}
+
+.status-badge.rejected {
+    background-color: var(--danger-light);
+    color: var(--danger-dark);
+}
+
+.status-badge.active {
+    background-color: var(--info-light);
+    color: var(--info-dark);
+}
+
+.status-badge.inactive {
+    background-color: var(--gray-100);
+    color: var(--gray-700);
+}
+
+.status-badge.banned {
+    background-color: var(--danger-light);
+    color: var(--danger-dark);
+}
+
+.status-badge.completed {
+    background-color: var(--success-light);
+    color: var(--success-dark);
+}
+
+.status-badge.in_progress {
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
+}
+
+.status-badge.draft {
+    background-color: var(--gray-100);
+    color: var(--gray-700);
+}
+
+.status-badge.submitted {
+    background-color: var(--warning-light);
+    color: var(--warning-dark);
+}
+
+.status-badge.booked {
+    background-color: var(--success-light);
+    color: var(--success-dark);
+}
+
+/* Card and Container Themes */
+.stat-card,
+.chart-container,
+.table-section,
+.table-container,
+.filters-section,
+.bulk-actions,
+.settings-section,
+.design-card,
+.gallery-item {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+}
+
+.stat-card:hover,
+.chart-container:hover,
+.table-section:hover,
+.table-container:hover,
+.filters-section:hover,
+.bulk-actions:hover,
+.settings-section:hover {
+    box-shadow: var(--shadow-md);
+}
+
+/* Header Themes */
+.admin-header,
+.modal-header {
+    background-color: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Sidebar Theme */
+.sidebar {
+    background-color: var(--bg-secondary);
+    border-right: 1px solid var(--border-color);
+}
+
+.nav-link:hover {
+    background-color: var(--bg-hover);
+    color: var(--primary-color);
+}
+
+.nav-link.active {
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+    border-left-color: var(--primary-color);
+}
+
+/* Table Theme */
+.data-table th {
+    background-color: var(--bg-tertiary);
+    border-bottom: 2px solid var(--border-color);
+    color: var(--text-secondary);
+}
+
+.data-table tbody tr:hover {
+    background-color: var(--bg-hover);
+}
+
+.data-table td {
+    border-bottom: 1px solid var(--border-light);
+}
+
+/* Modal Theme */
+.modal-content {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-lg);
+}
+
+.modal-header,
+.modal-footer {
+    border-color: var(--border-color);
+}
+
+/* Notification Theme */
+.notification {
+    background-color: var(--success-color);
+    color: var(--text-light);
+    box-shadow: var(--shadow-md);
+}
+
+/* Loading and Progress Themes */
+.loading-screen {
+    background-color: var(--bg-secondary);
+}
+
+.loading-spinner {
+    border-color: var(--gray-200);
+    border-top-color: var(--primary-color);
+}
+
+/* Error Message Theme */
+.error-message {
+    background-color: var(--danger-light);
+    color: var(--danger-dark);
+    border-color: var(--danger-color);
+}
+
+/* Search and Filter Themes */
+.search-input,
+.filter-select,
+.filter-date {
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.search-input:focus,
+.filter-select:focus,
+.filter-date:focus {
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Pagination Theme */
+.pagination-btn {
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background-color: var(--bg-hover);
+    color: var(--text-primary);
+}
+
+/* Detail Section Themes */
+.detail-section h3 {
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text-primary);
+}
+
+/* Settings Section Theme */
+.super-admin-only {
+    border-left: 4px solid var(--warning-color);
+    background-color: var(--warning-light);
+}
+
+/* Maintenance Item Theme */
+.maintenance-item {
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-light);
+}
+
+/* Design and Gallery Card Themes */
+.design-preview,
+.design-canvas-container {
+    background-color: var(--bg-tertiary);
+    border: 2px dashed var(--border-color);
+}
+
+/* Login Screen Theme */
+.login-screen {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.login-container {
+    background-color: var(--bg-secondary);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Responsive Theme Adjustments */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-primary: #1a1a1a;
+        --bg-secondary: #2d2d2d;
+        --bg-tertiary: #3a3a3a;
+        --bg-hover: #404040;
+        --bg-active: #4a5568;
+
+        --text-primary: #ffffff;
+        --text-secondary: #e2e8f0;
+        --text-muted: #a0aec0;
+
+        --border-color: #4a5568;
+        --border-light: #2d3748;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    :root {
+        --border-color: #000000;
+        --border-light: #000000;
+        --bg-hover: #000000;
+        --bg-active: #000000;
+    }
+
+    .btn-outline {
+        border-width: 2px;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .admin-interface {
+        display: block !important;
+    }
+
+    .sidebar,
+    .admin-header,
+    .btn,
+    .modal,
+    .notification {
+        display: none !important;
+    }
+
+    .main-content {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .stat-card,
+    .chart-container,
+    .table-section,
+    .table-container {
+        box-shadow: none !important;
+        border: 1px solid #000 !important;
+        break-inside: avoid;
+    }
+}

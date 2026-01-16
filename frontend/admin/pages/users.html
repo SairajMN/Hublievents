@@ -1,0 +1,276 @@
+<div class="page-header">
+    <div class="page-header-content">
+        <div>
+            <h1>User Management</h1>
+            <p>Manage user accounts and permissions</p>
+        </div>
+        <div class="page-actions">
+            <button id="add-user" class="btn btn-primary">
+                <span>+</span> Add User
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Filters and Search -->
+<div class="filters-section">
+    <div class="filters-row">
+        <div class="search-box">
+            <input type="text" id="search-users" placeholder="Search users..." class="search-input">
+            <button class="search-btn">🔍</button>
+        </div>
+
+        <div class="filters">
+            <select id="role-filter" class="filter-select">
+                <option value="">All Roles</option>
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+                <option value="super_admin">Super Admin</option>
+            </select>
+
+            <select id="status-filter" class="filter-select">
+                <option value="">All Status</option>
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+                <option value="banned">Banned</option>
+            </select>
+
+            <input type="date" id="date-from" class="filter-date">
+            <input type="date" id="date-to" class="filter-date">
+
+            <button id="clear-filters" class="btn btn-outline">Clear Filters</button>
+        </div>
+    </div>
+</div>
+
+<!-- Users Table -->
+<div class="table-container">
+    <div class="table-header">
+        <h3>Users (<span id="user-count">0</span>)</h3>
+        <div class="table-actions">
+            <select id="sort-by" class="sort-select">
+                <option value="created_at_desc">Newest First</option>
+                <option value="created_at_asc">Oldest First</option>
+                <option value="name_asc">Name A-Z</option>
+                <option value="last_login_desc">Recently Active</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Status</th>
+                    <th>Joined</th>
+                    <th>Last Login</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="users-table-body">
+                <!-- User rows will be populated here -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination">
+        <button id="prev-page" class="btn btn-outline pagination-btn" disabled>Previous</button>
+        <span class="pagination-info">
+            Page <span id="current-page">1</span> of <span id="total-pages">1</span>
+        </span>
+        <button id="next-page" class="btn btn-outline pagination-btn">Next</button>
+    </div>
+</div>
+
+<!-- User Detail Modal -->
+<div id="user-modal" class="modal hidden">
+    <div class="modal-content large-modal">
+        <div class="modal-header">
+            <h2>User Details</h2>
+            <button class="modal-close">&times;</button>
+        </div>
+
+        <div class="modal-body">
+            <div class="user-detail-grid">
+                <!-- User Information -->
+                <div class="detail-section">
+                    <h3>User Information</h3>
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <label>Name:</label>
+                            <span id="user-name">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>Email:</label>
+                            <span id="user-email">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>Phone:</label>
+                            <span id="user-phone">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>Location:</label>
+                            <span id="user-location">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>Joined:</label>
+                            <span id="user-joined">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>Last Login:</label>
+                            <span id="user-last-login">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Account Status -->
+                <div class="detail-section">
+                    <h3>Account Status</h3>
+                    <div class="status-controls">
+                        <div class="form-group">
+                            <label for="user-status">Status:</label>
+                            <select id="user-status" class="form-control">
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                                <option value="banned">Banned</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="user-role">Role:</label>
+                            <select id="user-role" class="form-control">
+                                <option value="user">User</option>
+                                <option value="admin">Admin</option>
+                                <option value="super_admin">Super Admin</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- User Activity -->
+                <div class="detail-section full-width">
+                    <h3>User Activity</h3>
+                    <div class="activity-summary">
+                        <div class="activity-stat">
+                            <span class="activity-number" id="designs-count">0</span>
+                            <span class="activity-label">Designs Created</span>
+                        </div>
+                        <div class="activity-stat">
+                            <span class="activity-number" id="enquiries-count">0</span>
+                            <span class="activity-label">Enquiries Submitted</span>
+                        </div>
+                        <div class="activity-stat">
+                            <span class="activity-number" id="gallery-uploads">0</span>
+                            <span class="activity-label">Gallery Uploads</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity Log -->
+                <div class="detail-section full-width">
+                    <h3>Recent Activity</h3>
+                    <div id="user-activity-log" class="activity-log">
+                        <!-- Activity log will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Admin Actions -->
+                <div class="detail-section full-width">
+                    <h3>Admin Actions</h3>
+                    <div class="admin-actions">
+                        <div class="action-buttons">
+                            <button id="reset-password" class="btn btn-warning">Reset Password</button>
+                            <button id="send-notification" class="btn btn-secondary">Send Notification</button>
+                            <button id="export-user-data" class="btn btn-outline">Export User Data</button>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="admin-notes">Admin Notes:</label>
+                            <textarea id="user-admin-notes" placeholder="Add notes about this user..."
+                                rows="3"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="action-reason">Action Reason:</label>
+                            <select id="action-reason" class="form-control">
+                                <option value="">Select reason...</option>
+                                <option value="policy_violation">Policy Violation</option>
+                                <option value="spam">Spam Activity</option>
+                                <option value="inappropriate_content">Inappropriate Content</option>
+                                <option value="account_security">Security Concern</option>
+                                <option value="user_request">User Request</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button id="save-user-changes" class="btn btn-primary">Save Changes</button>
+            <button id="delete-user" class="btn btn-danger">Delete User</button>
+            <button class="btn btn-outline modal-close">Close</button>
+        </div>
+    </div>
+</div>
+
+<!-- Add User Modal -->
+<div id="add-user-modal" class="modal hidden">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Add New User</h2>
+            <button class="modal-close">&times;</button>
+        </div>
+
+        <div class="modal-body">
+            <form id="add-user-form">
+                <div class="form-group">
+                    <label for="new-user-name">Full Name:</label>
+                    <input type="text" id="new-user-name" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="new-user-email">Email Address:</label>
+                    <input type="email" id="new-user-email" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="new-user-phone">Phone Number:</label>
+                    <input type="tel" id="new-user-phone" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="new-user-role">Role:</label>
+                    <select id="new-user-role" class="form-control" required>
+                        <option value="user">User</option>
+                        <option value="admin">Admin</option>
+                        <option value="super_admin">Super Admin</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="new-user-location">Location:</label>
+                    <input type="text" id="new-user-location" class="form-control" placeholder="City, State">
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="send-welcome-email" checked>
+                        Send welcome email with login instructions
+                    </label>
+                </div>
+            </form>
+        </div>
+
+        <div class="modal-footer">
+            <button id="create-user" class="btn btn-primary">Create User</button>
+            <button class="btn btn-outline modal-close">Cancel</button>
+        </div>
+    </div>
+</div>

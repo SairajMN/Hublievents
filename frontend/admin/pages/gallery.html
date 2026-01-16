@@ -1,0 +1,265 @@
+<div class="page-header">
+    <div class="page-header-content">
+        <div>
+            <h1>Gallery Management</h1>
+            <p>Manage gallery images and media content</p>
+        </div>
+        <div class="page-actions">
+            <button id="upload-images" class="btn btn-primary">
+                <span>📤</span> Upload Images
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Filters and Search -->
+<div class="filters-section">
+    <div class="filters-row">
+        <div class="search-box">
+            <input type="text" id="search-gallery" placeholder="Search gallery..." class="search-input">
+            <button class="search-btn">🔍</button>
+        </div>
+
+        <div class="filters">
+            <select id="status-filter" class="filter-select">
+                <option value="">All Status</option>
+                <option value="pending">Pending Approval</option>
+                <option value="approved">Approved</option>
+                <option value="rejected">Rejected</option>
+            </select>
+
+            <select id="category-filter" class="filter-select">
+                <option value="">All Categories</option>
+                <option value="wedding">Wedding</option>
+                <option value="corporate">Corporate</option>
+                <option value="birthday">Birthday</option>
+                <option value="cultural">Cultural</option>
+                <option value="decoration">Decoration</option>
+                <option value="venue">Venue</option>
+                <option value="other">Other</option>
+            </select>
+
+            <input type="date" id="date-from" class="filter-date">
+            <input type="date" id="date-to" class="filter-date">
+
+            <button id="clear-filters" class="btn btn-outline">Clear Filters</button>
+        </div>
+    </div>
+</div>
+
+<!-- Bulk Actions -->
+<div class="bulk-actions">
+    <div class="selected-count">
+        <span id="selected-count">0</span> images selected
+    </div>
+    <div class="bulk-buttons">
+        <button id="bulk-approve" class="btn btn-success" disabled>Approve Selected</button>
+        <button id="bulk-reject" class="btn btn-danger" disabled>Reject Selected</button>
+        <button id="bulk-delete" class="btn btn-danger" disabled>Delete Selected</button>
+        <button id="select-all" class="btn btn-outline">Select All</button>
+        <button id="clear-selection" class="btn btn-outline">Clear Selection</button>
+    </div>
+</div>
+
+<!-- Gallery Grid -->
+<div class="gallery-grid">
+    <!-- Gallery items will be populated here -->
+</div>
+
+<!-- Upload Modal -->
+<div id="upload-modal" class="modal hidden">
+    <div class="modal-content large-modal">
+        <div class="modal-header">
+            <h2>Upload Gallery Images</h2>
+            <button class="modal-close">&times;</button>
+        </div>
+
+        <div class="modal-body">
+            <div class="upload-section">
+                <!-- Drag and Drop Area -->
+                <div class="upload-dropzone" id="upload-dropzone">
+                    <div class="upload-placeholder">
+                        <div class="upload-icon">📤</div>
+                        <p>Drag & drop images here or click to browse</p>
+                        <small>Supported formats: JPG, PNG, WebP (Max 10MB each)</small>
+                        <input type="file" id="file-input" multiple accept="image/*" hidden>
+                    </div>
+                </div>
+
+                <!-- Upload Progress -->
+                <div id="upload-progress" class="upload-progress hidden">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <p id="progress-text">Uploading...</p>
+                </div>
+
+                <!-- File List -->
+                <div id="file-list" class="file-list">
+                    <!-- Selected files will be shown here -->
+                </div>
+            </div>
+
+            <!-- Upload Form -->
+            <form id="upload-form" class="upload-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="upload-category">Category:</label>
+                        <select id="upload-category" class="form-control" required>
+                            <option value="">Select category...</option>
+                            <option value="wedding">Wedding</option>
+                            <option value="corporate">Corporate</option>
+                            <option value="birthday">Birthday</option>
+                            <option value="cultural">Cultural</option>
+                            <option value="decoration">Decoration</option>
+                            <option value="venue">Venue</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="upload-tags">Tags (comma-separated):</label>
+                        <input type="text" id="upload-tags" class="form-control"
+                            placeholder="luxury, modern, traditional, elegant">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="upload-description">Description:</label>
+                    <textarea id="upload-description" class="form-control" rows="3"
+                        placeholder="Describe these images..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="auto-approve" checked>
+                        Auto-approve uploaded images
+                    </label>
+                </div>
+            </form>
+        </div>
+
+        <div class="modal-footer">
+            <button id="start-upload" class="btn btn-primary" disabled>Upload Images</button>
+            <button class="btn btn-outline modal-close">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<!-- Image Detail Modal -->
+<div id="image-modal" class="modal hidden">
+    <div class="modal-content large-modal">
+        <div class="modal-header">
+            <h2>Image Details</h2>
+            <button class="modal-close">&times;</button>
+        </div>
+
+        <div class="modal-body">
+            <div class="image-detail-layout">
+                <!-- Image Preview -->
+                <div class="image-preview-section">
+                    <div class="image-container">
+                        <img id="modal-image" src="" alt="Gallery Image">
+                    </div>
+                    <div class="image-actions">
+                        <button id="prev-image" class="btn btn-sm">⬅️ Previous</button>
+                        <button id="next-image" class="btn btn-sm">Next ➡️</button>
+                        <button id="download-image" class="btn btn-sm">📥 Download</button>
+                    </div>
+                </div>
+
+                <!-- Image Information -->
+                <div class="image-info-section">
+                    <!-- Image Details -->
+                    <div class="detail-section">
+                        <h3>Image Information</h3>
+                        <div class="detail-grid">
+                            <div class="detail-item">
+                                <label>Filename:</label>
+                                <span id="image-filename">-</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>Size:</label>
+                                <span id="image-size">-</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>Dimensions:</label>
+                                <span id="image-dimensions">-</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>Status:</label>
+                                <span id="image-status" class="status-badge">-</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>Uploaded:</label>
+                                <span id="image-uploaded">-</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>Uploaded by:</label>
+                                <span id="image-uploader">-</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Categories & Tags -->
+                    <div class="detail-section">
+                        <h3>Categories & Tags</h3>
+                        <div class="form-group">
+                            <label for="edit-category">Category:</label>
+                            <select id="edit-category" class="form-control">
+                                <option value="wedding">Wedding</option>
+                                <option value="corporate">Corporate</option>
+                                <option value="birthday">Birthday</option>
+                                <option value="cultural">Cultural</option>
+                                <option value="decoration">Decoration</option>
+                                <option value="venue">Venue</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="edit-tags">Tags:</label>
+                            <input type="text" id="edit-tags" class="form-control"
+                                placeholder="luxury, modern, traditional">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="edit-description">Description:</label>
+                            <textarea id="edit-description" class="form-control" rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Admin Actions -->
+                    <div class="detail-section">
+                        <h3>Admin Actions</h3>
+                        <div class="admin-actions">
+                            <div class="action-buttons">
+                                <button id="approve-image" class="btn btn-success">Approve Image</button>
+                                <button id="reject-image" class="btn btn-danger">Reject Image</button>
+                                <button id="feature-image" class="btn btn-primary">Feature Image</button>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="rejection-reason">Rejection Reason:</label>
+                                <select id="image-rejection-reason" class="form-control">
+                                    <option value="">Select reason...</option>
+                                    <option value="quality">Poor quality</option>
+                                    <option value="inappropriate">Inappropriate content</option>
+                                    <option value="duplicate">Duplicate image</option>
+                                    <option value="irrelevant">Not relevant</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button id="save-image-changes" class="btn btn-primary">Save Changes</button>
+            <button id="delete-image" class="btn btn-danger">Delete Image</button>
+            <button class="btn btn-outline modal-close">Close</button>
+        </div>
+    </div>
+</div>

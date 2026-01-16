@@ -1,0 +1,309 @@
+/* Responsive Styles - Mobile-first Media Queries */
+
+/* Mobile First - Base styles are mobile */
+
+/* Small tablets and large phones (landscape) */
+@media (min-width: 576px) {
+  .container {
+    padding: 0 2rem;
+  }
+
+  .section {
+    padding: var(--space-xl) 0;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+  }
+
+  h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  .grid {
+    gap: var(--space-lg);
+  }
+}
+
+/* Tablets */
+@media (min-width: 768px) {
+  .navbar {
+    transform: translateY(0); /* Always visible on larger screens */
+  }
+
+  .nav-menu {
+    gap: var(--space-xl);
+  }
+
+  .section {
+    padding: var(--space-2xl) 0;
+  }
+
+  .section-full {
+    min-height: 80vh; /* Slightly less than full viewport on tablets */
+  }
+
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .card-content {
+    padding: var(--space-lg);
+  }
+
+  .btn {
+    padding: var(--space-md) var(--space-lg);
+  }
+}
+
+/* Small desktops */
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+
+  .section-hero {
+    background-attachment: fixed; /* Re-enable parallax on larger screens */
+  }
+
+  .grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .nav-menu {
+    gap: var(--space-2xl);
+  }
+
+  .card-image {
+    height: 250px;
+  }
+}
+
+/* Large desktops */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+
+  .section {
+    padding: calc(var(--space-2xl) * 1.5) 0;
+  }
+
+  .grid-cols-12 {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+/* Extra large desktops */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+
+  h1 {
+    font-size: clamp(3rem, 8vw, 5rem);
+  }
+
+  h2 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+  }
+
+  .btn {
+    padding: var(--space-lg) calc(var(--space-xl) * 1.5);
+    font-size: 1.125rem;
+  }
+}
+
+/* Touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .hover-lift:hover,
+  .hover-scale:hover,
+  .hover-rotate:hover {
+    transform: none;
+  }
+
+  .btn:hover {
+    transform: none;
+  }
+
+  .card:hover {
+    transform: none;
+    box-shadow: var(--shadow-md);
+  }
+
+  .nav-link:hover {
+    color: var(--color-text);
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  :root {
+    --color-primary: #000000;
+    --color-accent: #FFD700;
+    --color-bg: #FFFFFF;
+    --color-text: #000000;
+  }
+}
+
+/* Print styles */
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  .navbar,
+  .btn,
+  .section-hero::before {
+    display: none !important;
+  }
+
+  .section {
+    padding: 1rem 0 !important;
+    break-inside: avoid;
+  }
+
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  a {
+    text-decoration: underline !important;
+  }
+}
+
+/* Dark mode support (future enhancement) */
+@media (prefers-color-scheme: dark) {
+  /* Placeholder for future dark mode implementation */
+  /* :root {
+    --color-bg: #1a1a1a;
+    --color-text: #ffffff;
+    --color-bg-light: #2a2a2a;
+  } */
+}
+
+/* Reduced motion adjustments */
+@media (prefers-reduced-motion: reduce) {
+  .section-hero {
+    background-attachment: scroll;
+  }
+
+  .parallax-bg-slow,
+  .parallax-bg-fast {
+    animation: none;
+  }
+
+  .animate-fade-in,
+  .animate-fade-in-up,
+  .animate-fade-in-down,
+  .animate-fade-in-left,
+  .animate-fade-in-right,
+  .animate-scale-in,
+  .animate-slide-in-up,
+  .animate-clip-reveal,
+  .animate-text-reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .scroll-reveal,
+  .scroll-reveal-left,
+  .scroll-reveal-right,
+  .scroll-scale {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Orientation changes */
+@media (orientation: landscape) and (max-height: 500px) {
+  .section-full {
+    min-height: 70vh;
+  }
+
+  .section-hero {
+    background-attachment: scroll; /* Disable fixed attachment on short screens */
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Ensure images and icons are crisp */
+  .card-image,
+  img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Focus visible for keyboard navigation */
+@media (prefers-reduced-motion: no-preference) {
+  .btn:focus-visible,
+  .nav-link:focus-visible,
+  .form-input:focus-visible,
+  .form-textarea:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+    animation: pulse 1s ease-in-out;
+  }
+}
+
+/* Container query support (modern browsers) */
+@container (min-width: 400px) {
+  .card-content {
+    padding: var(--space-lg);
+  }
+}
+
+@container (min-width: 600px) {
+  .grid {
+    gap: var(--space-xl);
+  }
+}
+
+/* Custom utility classes for specific breakpoints */
+@media (max-width: 575.98px) {
+  .mobile-full {
+    width: 100%;
+  }
+
+  .mobile-center {
+    text-align: center;
+  }
+
+  .mobile-stack {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .tablet-hide {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .desktop-hide {
+    display: none;
+  }
+}
+
+@media (min-width: 992px) {
+  .large-show {
+    display: block;
+  }
+}

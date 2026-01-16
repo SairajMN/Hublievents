@@ -1,0 +1,266 @@
+<div class="page-header">
+    <div class="page-header-content">
+        <div>
+            <h1>Design Management</h1>
+            <p>Review, approve, and manage customer designs</p>
+        </div>
+        <div class="page-actions">
+            <button id="create-preset" class="btn btn-primary">
+                <span>+</span> Create Preset
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Filters and Search -->
+<div class="filters-section">
+    <div class="filters-row">
+        <div class="search-box">
+            <input type="text" id="search-designs" placeholder="Search designs..." class="search-input">
+            <button class="search-btn">🔍</button>
+        </div>
+
+        <div class="filters">
+            <select id="status-filter" class="filter-select">
+                <option value="">All Status</option>
+                <option value="draft">Draft</option>
+                <option value="submitted">Submitted</option>
+                <option value="approved">Approved</option>
+                <option value="rejected">Rejected</option>
+                <option value="booked">Booked</option>
+            </select>
+
+            <select id="category-filter" class="filter-select">
+                <option value="">All Categories</option>
+                <option value="wedding">Wedding</option>
+                <option value="corporate">Corporate</option>
+                <option value="birthday">Birthday</option>
+                <option value="cultural">Cultural</option>
+                <option value="other">Other</option>
+            </select>
+
+            <input type="date" id="date-from" class="filter-date">
+            <input type="date" id="date-to" class="filter-date">
+
+            <button id="clear-filters" class="btn btn-outline">Clear Filters</button>
+        </div>
+    </div>
+</div>
+
+<!-- Design Grid/List Toggle -->
+<div class="view-toggle">
+    <button id="grid-view" class="view-btn active">
+        <span>⊞</span> Grid
+    </button>
+    <button id="list-view" class="view-btn">
+        <span>☰</span> List
+    </button>
+</div>
+
+<!-- Designs Grid View -->
+<div id="designs-grid" class="designs-grid">
+    <!-- Design cards will be populated here -->
+</div>
+
+<!-- Designs List View -->
+<div id="designs-list" class="designs-list hidden">
+    <div class="table-container">
+        <div class="table-responsive">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Preview</th>
+                        <th>Customer</th>
+                        <th>Event Type</th>
+                        <th>Status</th>
+                        <th>Created</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="designs-table-body">
+                    <!-- Design rows will be populated here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <button id="prev-page" class="btn btn-outline pagination-btn" disabled>Previous</button>
+            <span class="pagination-info">
+                Page <span id="current-page">1</span> of <span id="total-pages">1</span>
+            </span>
+            <button id="next-page" class="btn btn-outline pagination-btn">Next</button>
+        </div>
+    </div>
+</div>
+
+<!-- Design Detail Modal -->
+<div id="design-modal" class="modal hidden">
+    <div class="modal-content large-modal">
+        <div class="modal-header">
+            <h2>Design Details</h2>
+            <button class="modal-close">&times;</button>
+        </div>
+
+        <div class="modal-body">
+            <div class="design-detail-layout">
+                <!-- Design Preview -->
+                <div class="design-preview-section">
+                    <div class="design-canvas-container">
+                        <canvas id="design-canvas" class="design-canvas"></canvas>
+                    </div>
+                    <div class="design-actions">
+                        <button id="zoom-in" class="btn btn-sm">🔍+</button>
+                        <button id="zoom-out" class="btn btn-sm">🔍-</button>
+                        <button id="reset-zoom" class="btn btn-sm">Reset</button>
+                    </div>
+                </div>
+
+                <!-- Design Information -->
+                <div class="design-info-section">
+                    <!-- Customer Info -->
+                    <div class="detail-section">
+                        <h3>Customer Information</h3>
+                        <div class="detail-grid">
+                            <div class="detail-item">
+                                <label>Name:</label>
+                                <span id="design-customer-name">-</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>Email:</label>
+                                <span id="design-customer-email">-</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>Phone:</label>
+                                <span id="design-customer-phone">-</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Design Details -->
+                    <div class="detail-section">
+                        <h3>Design Information</h3>
+                        <div class="detail-grid">
+                            <div class="detail-item">
+                                <label>Event Type:</label>
+                                <span id="design-event-type">-</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>Status:</label>
+                                <span id="design-status" class="status-badge">-</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>Created:</label>
+                                <span id="design-created">-</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>Last Modified:</label>
+                                <span id="design-modified">-</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Design Specifications -->
+                    <div class="detail-section">
+                        <h3>Design Specifications</h3>
+                        <div id="design-specs" class="design-specs">
+                            <!-- Specifications will be loaded here -->
+                        </div>
+                    </div>
+
+                    <!-- Version History -->
+                    <div class="detail-section">
+                        <h3>Version History</h3>
+                        <div id="version-history" class="version-history">
+                            <!-- Version history will be loaded here -->
+                        </div>
+                    </div>
+
+                    <!-- Admin Actions -->
+                    <div class="detail-section">
+                        <h3>Admin Actions</h3>
+                        <div class="admin-actions">
+                            <div class="action-buttons">
+                                <button id="approve-design" class="btn btn-success">Approve Design</button>
+                                <button id="reject-design" class="btn btn-danger">Reject Design</button>
+                                <button id="duplicate-design" class="btn btn-secondary">Duplicate as Preset</button>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="admin-notes">Admin Notes:</label>
+                                <textarea id="admin-notes" placeholder="Add notes about this design..."
+                                    rows="3"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="rejection-reason">Rejection Reason (if rejecting):</label>
+                                <select id="rejection-reason" class="form-control">
+                                    <option value="">Select reason...</option>
+                                    <option value="incomplete">Incomplete design</option>
+                                    <option value="quality">Quality issues</option>
+                                    <option value="requirements">Doesn't meet requirements</option>
+                                    <option value="duplicate">Duplicate submission</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button id="save-design-changes" class="btn btn-primary">Save Changes</button>
+            <button id="download-design" class="btn btn-secondary">Download Design</button>
+            <button class="btn btn-outline modal-close">Close</button>
+        </div>
+    </div>
+</div>
+
+<!-- Create Preset Modal -->
+<div id="preset-modal" class="modal hidden">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Create Design Preset</h2>
+            <button class="modal-close">&times;</button>
+        </div>
+
+        <div class="modal-body">
+            <form id="preset-form">
+                <div class="form-group">
+                    <label for="preset-name">Preset Name:</label>
+                    <input type="text" id="preset-name" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="preset-category">Category:</label>
+                    <select id="preset-category" class="form-control" required>
+                        <option value="">Select category...</option>
+                        <option value="wedding">Wedding</option>
+                        <option value="corporate">Corporate</option>
+                        <option value="birthday">Birthday</option>
+                        <option value="cultural">Cultural</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="preset-description">Description:</label>
+                    <textarea id="preset-description" class="form-control" rows="3"
+                        placeholder="Describe this preset..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="preset-tags">Tags (comma-separated):</label>
+                    <input type="text" id="preset-tags" class="form-control" placeholder="luxury, modern, traditional">
+                </div>
+            </form>
+        </div>
+
+        <div class="modal-footer">
+            <button id="create-preset-btn" class="btn btn-primary">Create Preset</button>
+            <button class="btn btn-outline modal-close">Cancel</button>
+        </div>
+    </div>
+</div>

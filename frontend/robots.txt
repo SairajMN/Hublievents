@@ -1,0 +1,50 @@
+User-agent: *
+Allow: /
+
+# Allow all major search engines to crawl the site
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# Block admin and sensitive areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /backend/
+Disallow: /logs/
+Disallow: /uploads/private/
+Disallow: /admin.html
+Disallow: /admin/
+
+# Block development and temporary files
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /.git/
+Disallow: /.env
+Disallow: /package.json
+Disallow: /README.md
+
+# Block duplicate content and internal pages
+Disallow: /*?*
+Disallow: /*&*
+Disallow: /search
+Disallow: /filter
+
+# Crawl delay to be respectful
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://hublievents.com/sitemap.xml

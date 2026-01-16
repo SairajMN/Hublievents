@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Hublievents</title>
+    <link rel="stylesheet" href="css/admin-base.css">
+    <link rel="stylesheet" href="css/admin-layout.css">
+    <link rel="stylesheet" href="css/admin-theme.css">
+    <link rel="stylesheet" href="css/admin-responsive.css">
+    <link rel="icon" href="../assets/icons/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Loading Screen -->
+        <div id="loading-screen" class="loading-screen">
+            <div class="loading-spinner"></div>
+            <p>Loading Admin Dashboard...</p>
+        </div>
+
+        <!-- Login Screen -->
+        <div id="login-screen" class="login-screen hidden">
+            <div class="login-container">
+                <div class="login-header">
+                    <h1>Admin Login</h1>
+                    <p>Hublievents Business Control Panel</p>
+                </div>
+                <form id="login-form" class="login-form">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" autocomplete="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" autocomplete="current-password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Login</button>
+                </form>
+                <div id="login-error" class="error-message hidden"></div>
+            </div>
+        </div>
+
+        <!-- Main Admin Interface -->
+        <div id="admin-interface" class="admin-interface hidden">
+            <!-- Header -->
+            <header class="admin-header">
+                <div class="header-left">
+                    <button id="sidebar-toggle" class="sidebar-toggle">
+                        <span class="hamburger"></span>
+                    </button>
+                    <h1 class="brand">Hublievents Admin</h1>
+                </div>
+                <div class="header-right">
+                    <div class="user-menu">
+                        <span id="admin-name">Admin</span>
+                        <button id="logout-btn" class="btn btn-secondary">Logout</button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Sidebar Navigation -->
+            <nav id="sidebar" class="sidebar">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#dashboard" class="nav-link active" data-page="dashboard">
+                            <span class="nav-icon">📊</span>
+                            <span class="nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#enquiries" class="nav-link" data-page="enquiries">
+                            <span class="nav-icon">📝</span>
+                            <span class="nav-text">Enquiries</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#designs" class="nav-link" data-page="designs">
+                            <span class="nav-icon">🎨</span>
+                            <span class="nav-text">Designs</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#gallery" class="nav-link" data-page="gallery">
+                            <span class="nav-icon">🖼️</span>
+                            <span class="nav-text">Gallery</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#users" class="nav-link" data-page="users">
+                            <span class="nav-icon">👥</span>
+                            <span class="nav-text">Users</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#settings" class="nav-link" data-page="settings">
+                            <span class="nav-icon">⚙️</span>
+                            <span class="nav-text">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Main Content Area -->
+            <main id="main-content" class="main-content">
+                <!-- Page content will be loaded here -->
+            </main>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/admin-app.js"></script>
+    <script src="js/admin-router.js"></script>
+    <script src="js/admin-api.js"></script>
+    <script src="js/admin-state.js"></script>
+    <script src="js/charts.js"></script>
+</body>
+
+</html>

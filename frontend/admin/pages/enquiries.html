@@ -1,0 +1,204 @@
+<div class="page-header">
+    <div class="page-header-content">
+        <div>
+            <h1>Enquiry Management</h1>
+            <p>Manage customer enquiries and leads</p>
+        </div>
+        <div class="page-actions">
+            <button id="export-enquiries" class="btn btn-secondary">
+                <span>📊</span> Export
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Filters and Search -->
+<div class="filters-section">
+    <div class="filters-row">
+        <div class="search-box">
+            <input type="text" id="search-enquiries" placeholder="Search enquiries..." class="search-input">
+            <button class="search-btn">🔍</button>
+        </div>
+
+        <div class="filters">
+            <select id="status-filter" class="filter-select">
+                <option value="">All Status</option>
+                <option value="pending">Pending</option>
+                <option value="in_progress">In Progress</option>
+                <option value="completed">Completed</option>
+                <option value="cancelled">Cancelled</option>
+            </select>
+
+            <select id="priority-filter" class="filter-select">
+                <option value="">All Priority</option>
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+            </select>
+
+            <input type="date" id="date-from" class="filter-date">
+            <input type="date" id="date-to" class="filter-date">
+
+            <button id="clear-filters" class="btn btn-outline">Clear Filters</button>
+        </div>
+    </div>
+</div>
+
+<!-- Enquiries Table -->
+<div class="table-container">
+    <div class="table-header">
+        <h3>Enquiries (<span id="enquiry-count">0</span>)</h3>
+        <div class="table-actions">
+            <select id="sort-by" class="sort-select">
+                <option value="created_at_desc">Newest First</option>
+                <option value="created_at_asc">Oldest First</option>
+                <option value="priority_desc">High Priority</option>
+                <option value="updated_at_desc">Recently Updated</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Customer</th>
+                    <th>Event Details</th>
+                    <th>Status</th>
+                    <th>Priority</th>
+                    <th>Created</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="enquiries-table-body">
+                <!-- Enquiry rows will be populated here -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination">
+        <button id="prev-page" class="btn btn-outline pagination-btn" disabled>Previous</button>
+        <span class="pagination-info">
+            Page <span id="current-page">1</span> of <span id="total-pages">1</span>
+        </span>
+        <button id="next-page" class="btn btn-outline pagination-btn">Next</button>
+    </div>
+</div>
+
+<!-- Enquiry Detail Modal -->
+<div id="enquiry-modal" class="modal hidden">
+    <div class="modal-content large-modal">
+        <div class="modal-header">
+            <h2>Enquiry Details</h2>
+            <button class="modal-close">&times;</button>
+        </div>
+
+        <div class="modal-body">
+            <div class="enquiry-detail-grid">
+                <!-- Customer Information -->
+                <div class="detail-section">
+                    <h3>Customer Information</h3>
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <label>Name:</label>
+                            <span id="customer-name">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>Email:</label>
+                            <span id="customer-email">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>Phone:</label>
+                            <span id="customer-phone">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>Location:</label>
+                            <span id="customer-location">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event Details -->
+                <div class="detail-section">
+                    <h3>Event Details</h3>
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <label>Event Type:</label>
+                            <span id="event-type">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>Event Date:</label>
+                            <span id="event-date">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>Guest Count:</label>
+                            <span id="guest-count">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>Budget:</label>
+                            <span id="budget">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enquiry Content -->
+                <div class="detail-section full-width">
+                    <h3>Enquiry Message</h3>
+                    <div id="enquiry-message" class="message-content">-</div>
+                </div>
+
+                <!-- Attached Design -->
+                <div class="detail-section full-width" id="design-preview-section">
+                    <h3>Attached Design</h3>
+                    <div id="design-preview" class="design-preview">
+                        <!-- Design preview will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Status and Notes -->
+                <div class="detail-section">
+                    <h3>Status & Priority</h3>
+                    <div class="status-controls">
+                        <div class="form-group">
+                            <label for="enquiry-status">Status:</label>
+                            <select id="enquiry-status" class="form-control">
+                                <option value="pending">Pending</option>
+                                <option value="in_progress">In Progress</option>
+                                <option value="completed">Completed</option>
+                                <option value="cancelled">Cancelled</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="enquiry-priority">Priority:</label>
+                            <select id="enquiry-priority" class="form-control">
+                                <option value="low">Low</option>
+                                <option value="medium">Medium</option>
+                                <option value="high">High</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Internal Notes -->
+                <div class="detail-section full-width">
+                    <h3>Internal Notes</h3>
+                    <div id="notes-list" class="notes-list">
+                        <!-- Notes will be loaded here -->
+                    </div>
+                    <div class="add-note">
+                        <textarea id="new-note" placeholder="Add internal note..." rows="3"></textarea>
+                        <button id="add-note-btn" class="btn btn-primary">Add Note</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button id="update-enquiry" class="btn btn-primary">Update Enquiry</button>
+            <button class="btn btn-outline modal-close">Close</button>
+        </div>
+    </div>
+</div>

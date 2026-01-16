@@ -1,0 +1,266 @@
+<div class="page-header">
+    <h1>System Settings</h1>
+    <p>Configure business settings and system preferences</p>
+</div>
+
+<div class="settings-container">
+    <!-- Business Information -->
+    <div class="settings-section">
+        <h2>Business Information</h2>
+        <form id="business-info-form" class="settings-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="business-name">Business Name:</label>
+                    <input type="text" id="business-name" class="form-control" value="Hublievents">
+                </div>
+
+                <div class="form-group">
+                    <label for="business-tagline">Tagline:</label>
+                    <input type="text" id="business-tagline" class="form-control"
+                        value="Luxury Event & Shamiyana Customization">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="business-email">Primary Email:</label>
+                    <input type="email" id="business-email" class="form-control" value="info@hublievents.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="business-phone">Primary Phone:</label>
+                    <input type="tel" id="business-phone" class="form-control" value="+91-XXXXXXXXXX">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="business-address">Business Address:</label>
+                <textarea id="business-address" class="form-control" rows="3">Your business address here...</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="business-description">Business Description:</label>
+                <textarea id="business-description" class="form-control"
+                    rows="4">Professional description of your business services...</textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save Business Info</button>
+        </form>
+    </div>
+
+    <!-- Enquiry Workflow Settings -->
+    <div class="settings-section">
+        <h2>Enquiry Workflow</h2>
+        <form id="enquiry-workflow-form" class="settings-form">
+            <div class="form-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="auto-assign-enquiries" checked>
+                    Auto-assign new enquiries to available admins
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label for="default-priority">Default Enquiry Priority:</label>
+                <select id="default-priority" class="form-control">
+                    <option value="low">Low</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="enquiry-response-time">Target Response Time (hours):</label>
+                <input type="number" id="enquiry-response-time" class="form-control" value="24" min="1" max="168">
+            </div>
+
+            <div class="form-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="email-notifications" checked>
+                    Send email notifications for new enquiries
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="sms-notifications" checked>
+                    Send SMS notifications for urgent enquiries
+                </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save Workflow Settings</button>
+        </form>
+    </div>
+
+    <!-- Design Settings -->
+    <div class="settings-section">
+        <h2>Design Settings</h2>
+        <form id="design-settings-form" class="settings-form">
+            <div class="form-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="auto-save-designs" checked>
+                    Auto-save designs during editing
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label for="max-design-versions">Maximum Design Versions to Keep:</label>
+                <input type="number" id="max-design-versions" class="form-control" value="10" min="1" max="50">
+            </div>
+
+            <div class="form-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="require-design-approval" checked>
+                    Require admin approval before designs can be booked
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label for="design-expiry-days">Design Expiry (days after creation):</label>
+                <input type="number" id="design-expiry-days" class="form-control" value="30" min="7" max="365">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save Design Settings</button>
+        </form>
+    </div>
+
+    <!-- Gallery Settings -->
+    <div class="settings-section">
+        <h2>Gallery Settings</h2>
+        <form id="gallery-settings-form" class="settings-form">
+            <div class="form-group">
+                <label for="max-image-size">Maximum Image Size (MB):</label>
+                <input type="number" id="max-image-size" class="form-control" value="10" min="1" max="50">
+            </div>
+
+            <div class="form-group">
+                <label for="allowed-formats">Allowed Image Formats:</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="allow-jpg" checked>
+                        JPG/JPEG
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="allow-png" checked>
+                        PNG
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="allow-webp" checked>
+                        WebP
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="auto-compress-images" checked>
+                    Auto-compress images for web optimization
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="require-gallery-approval" checked>
+                    Require admin approval for gallery uploads
+                </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save Gallery Settings</button>
+        </form>
+    </div>
+
+    <!-- Security Settings -->
+    <div class="settings-section">
+        <h2>Security Settings</h2>
+        <form id="security-settings-form" class="settings-form">
+            <div class="form-group">
+                <label for="session-timeout">Session Timeout (minutes):</label>
+                <input type="number" id="session-timeout" class="form-control" value="480" min="30" max="1440">
+            </div>
+
+            <div class="form-group">
+                <label for="password-min-length">Minimum Password Length:</label>
+                <input type="number" id="password-min-length" class="form-control" value="8" min="6" max="32">
+            </div>
+
+            <div class="form-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="require-strong-passwords" checked>
+                    Require strong passwords (uppercase, lowercase, numbers, symbols)
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label for="max-login-attempts">Maximum Login Attempts:</label>
+                <input type="number" id="max-login-attempts" class="form-control" value="5" min="3" max="10">
+            </div>
+
+            <div class="form-group">
+                <label for="lockout-duration">Account Lockout Duration (minutes):</label>
+                <input type="number" id="lockout-duration" class="form-control" value="30" min="5" max="1440">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save Security Settings</button>
+        </form>
+    </div>
+
+    <!-- System Maintenance -->
+    <div class="settings-section">
+        <h2>System Maintenance</h2>
+        <div class="maintenance-actions">
+            <div class="maintenance-item">
+                <h3>Data Backup</h3>
+                <p>Create a backup of all system data</p>
+                <button id="create-backup" class="btn btn-secondary">Create Backup</button>
+            </div>
+
+            <div class="maintenance-item">
+                <h3>Cache Management</h3>
+                <p>Clear system caches to improve performance</p>
+                <button id="clear-cache" class="btn btn-warning">Clear Cache</button>
+            </div>
+
+            <div class="maintenance-item">
+                <h3>Log Cleanup</h3>
+                <p>Remove old system logs</p>
+                <button id="cleanup-logs" class="btn btn-warning">Clean Logs</button>
+            </div>
+
+            <div class="maintenance-item">
+                <h3>System Health Check</h3>
+                <p>Run comprehensive system diagnostics</p>
+                <button id="health-check" class="btn btn-info">Run Check</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- API Settings (Super Admin Only) -->
+    <div class="settings-section super-admin-only">
+        <h2>API Configuration</h2>
+        <form id="api-settings-form" class="settings-form">
+            <div class="form-group">
+                <label for="api-rate-limit">API Rate Limit (requests per minute):</label>
+                <input type="number" id="api-rate-limit" class="form-control" value="1000" min="100" max="10000">
+            </div>
+
+            <div class="form-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="api-debug-mode">
+                    Enable API debug mode (development only)
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label for="cors-origins">Allowed CORS Origins (comma-separated):</label>
+                <input type="text" id="cors-origins" class="form-control"
+                    value="https://hublievents.com,https://admin.hublievents.com">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save API Settings</button>
+        </form>
+    </div>
+</div>
+
+<!-- Settings Saved Notification -->
+<div id="settings-notification" class="notification hidden">
+    <span id="notification-message">Settings saved successfully!</span>
+</div>

@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hublievents - Luxury Event Decor</title>
+    <meta name="description"
+        content="Craft your dream event with our premium shamiyana and wedding decor. Visual customization for luxury experiences.">
+    <meta name="keywords" content="wedding decor, shamiyana, event decoration, luxury events, Indian weddings">
+    <meta name="author" content="Hublievents">
+
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,300;0,400;0,600;0,700&family=Dancing+Script:wght@400&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Hublievents - Luxury Event Decor">
+    <meta property="og:description" content="Craft your dream event with our premium shamiyana and wedding decor.">
+    <meta property="og:image" content="assets/images/og-image.jpg">
+    <meta property="og:url" content="https://hublievents.com">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hublievents - Luxury Event Decor">
+    <meta name="twitter:description" content="Craft your dream event with our premium shamiyana and wedding decor.">
+    <meta name="twitter:image" content="assets/images/twitter-image.jpg">
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Theme Color for PWA -->
+    <meta name="theme-color" content="#007bff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Hublievents">
+
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" href="assets/icons/icon-192x192.png">
+
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="css/base.css" as="style">
+    <link rel="preload" href="css/theme.css" as="style">
+    <link rel="preload" href="js/app.js" as="script">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//images.unsplash.com">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Hublievents",
+      "description": "Premium luxury event decoration and shamiyana customization services",
+      "url": "https://hublievents.com",
+      "telephone": "+91-98765-43210",
+      "email": "hello@hublievents.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mumbai",
+        "addressRegion": "Maharashtra",
+        "addressCountry": "India"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "19.0760",
+        "longitude": "72.8777"
+      },
+      "openingHours": "Mo-Su 09:00-21:00",
+      "priceRange": "₹₹₹",
+      "serviceType": ["Event Decoration", "Wedding Decor", "Corporate Events", "Shamiyana Setup"],
+      "areaServed": ["Mumbai", "Delhi", "Bangalore", "Pune", "Ahmedabad", "Surat", "Vadodara"],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "500"
+      },
+      "sameAs": [
+        "https://www.instagram.com/hublievents",
+        "https://www.facebook.com/hublievents",
+        "https://www.pinterest.com/hublievents"
+      ]
+    }
+    </script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="container nav-container">
+            <a href="/" class="brand-logo" aria-label="Hublievents homepage">Hublievents</a>
+
+            <button class="mobile-menu-toggle" aria-expanded="false" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-menu" role="menubar">
+                <li><a href="#home" class="nav-link active" role="menuitem">Home</a></li>
+                <li><a href="#designs" class="nav-link" role="menuitem">Designs</a></li>
+                <li><a href="#gallery" class="nav-link" role="menuitem">Gallery</a></li>
+                <li><a href="#about" class="nav-link" role="menuitem">About</a></li>
+                <li><a href="#contact" class="nav-link" role="menuitem">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="section section-full section-hero"
+        style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);" role="banner"
+        aria-labelledby="hero-title">
+        <div class="container flex flex-col items-center justify-center text-center">
+            <h1 id="hero-title" class="text-gradient animate-text-reveal">Craft Your Dream Event</h1>
+            <p class="lead text-bg animate-fade-in-up animate-stagger-1">Visual customization for luxury decor
+                experiences that captivate and inspire</p>
+            <div class="flex flex-wrap justify-center gap-3 mt-4 animate-fade-in-up animate-stagger-2">
+                <a href="pages/customize.html" class="btn btn-primary">Start Designing</a>
+                <a href="#gallery" class="btn btn-outline">View Gallery</a>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="mt-4 animate-bounce" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M7 13l3 3 3-3"></path>
+                    <path d="M7 6l3 3 3-3"></path>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Story Section -->
+    <section class="section section-story" aria-labelledby="story-title">
+        <div class="container">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center">
+                <div class="scroll-reveal">
+                    <h2 id="story-title" class="text-primary">Our Legacy of Luxury</h2>
+                    <p class="mb-4">For generations, we've crafted extraordinary event experiences that blend
+                        traditional elegance with contemporary sophistication. Each piece tells a story of
+                        craftsmanship, passion, and unwavering commitment to perfection.</p>
+                    <p>From intimate gatherings to grand celebrations, we transform spaces into unforgettable memories,
+                        where every detail reflects the unique vision of our clients.</p>
+                    <a href="#about" class="btn btn-secondary mt-4">Our Story</a>
+                </div>
+                <div class="scroll-reveal-right">
+                    <div
+                        class="w-full h-64 bg-gradient-to-br from-amber-100 to-orange-200 rounded-lg shadow-lg hover-scale flex items-center justify-center">
+                        <div class="text-center text-gray-600">
+                            <div class="text-4xl mb-2">🎨</div>
+                            <p class="font-semibold">Craftsmanship</p>
+                            <p class="text-sm">Premium Quality Work</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Signature Designs Section -->
+    <section id="designs" class="section section-designs" aria-labelledby="designs-title">
+        <div class="container">
+            <div class="text-center mb-4 scroll-reveal">
+                <h2 id="designs-title" class="text-primary">Signature Designs</h2>
+                <p class="lead">Timeless elegance meets modern innovation in our curated collection</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="card scroll-reveal hover-lift">
+                    <div
+                        class="card-image bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center text-white text-4xl">
+                        👑
+                    </div>
+                    <div class="card-content">
+                        <h3>Royal Wedding Collection</h3>
+                        <p>Opulent designs inspired by palaces and heritage</p>
+                        <a href="#" class="btn btn-outline btn-sm">View Details</a>
+                    </div>
+                </div>
+
+                <div class="card scroll-reveal hover-lift animate-stagger-1">
+                    <div
+                        class="card-image bg-gradient-to-br from-blue-400 to-indigo-500 flex items-center justify-center text-white text-4xl">
+                        🏢
+                    </div>
+                    <div class="card-content">
+                        <h3>Corporate Excellence</h3>
+                        <p>Sophisticated setups for business gatherings</p>
+                        <a href="#" class="btn btn-outline btn-sm">View Details</a>
+                    </div>
+                </div>
+
+                <div class="card scroll-reveal hover-lift animate-stagger-2">
+                    <div
+                        class="card-image bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center text-white text-4xl">
+                        🌸
+                    </div>
+                    <div class="card-content">
+                        <h3>Garden Celebrations</h3>
+                        <p>Natural elegance for outdoor festivities</p>
+                        <a href="#" class="btn btn-outline btn-sm">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4 scroll-reveal">
+                <a href="#" class="btn btn-primary">Explore All Designs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customization Teaser Section -->
+    <section class="section" aria-labelledby="customization-title">
+        <div class="container">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center">
+                <div class="scroll-reveal">
+                    <h2 id="customization-title" class="text-primary">Design Your Vision</h2>
+                    <p class="mb-4">Experience the power of visual customization. Our interactive design tool lets you
+                        see your event come to life before your eyes.</p>
+
+                    <div class="grid grid-cols-3 gap-2 mb-4">
+                        <div class="text-center p-3 bg-light rounded">
+                            <div class="text-2xl mb-2">🎨</div>
+                            <h4>Choose Style</h4>
+                            <p class="text-sm">Select your preferred aesthetic</p>
+                        </div>
+                        <div class="text-center p-3 bg-light rounded">
+                            <div class="text-2xl mb-2">⚙️</div>
+                            <h4>Customize</h4>
+                            <p class="text-sm">Adjust colors, materials, layout</p>
+                        </div>
+                        <div class="text-center p-3 bg-light rounded">
+                            <div class="text-2xl mb-2">✨</div>
+                            <h4>Visualize</h4>
+                            <p class="text-sm">See your design in real-time</p>
+                        </div>
+                    </div>
+
+                    <a href="#" class="btn btn-primary">Start Customizing</a>
+                </div>
+
+                <div class="scroll-reveal-right">
+                    <div class="bg-light p-4 rounded-lg shadow-lg">
+                        <div
+                            class="aspect-video bg-gradient-to-br from-primary to-accent rounded flex items-center justify-center text-white text-xl font-bold">
+                            Interactive Design Preview
+                            <br>
+                            <span class="text-sm opacity-75">(Coming Soon)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Preview Section -->
+    <section id="gallery" class="section section-gallery" aria-labelledby="gallery-title">
+        <div class="container">
+            <div class="text-center mb-4 scroll-reveal">
+                <h2 id="gallery-title" class="text-primary">Inspiration Gallery</h2>
+                <p class="lead">Real events, real beauty, real results</p>
+            </div>
+
+            <div class="flex justify-center mb-4">
+                <div class="flex gap-2" role="tablist" aria-label="Gallery filters">
+                    <button class="btn btn-outline active" role="tab" aria-selected="true">All</button>
+                    <button class="btn btn-outline" role="tab">Weddings</button>
+                    <button class="btn btn-outline" role="tab">Corporate</button>
+                    <button class="btn btn-outline" role="tab">Celebrations</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+                <div class="scroll-reveal">
+                    <div
+                        class="w-full h-48 bg-gradient-to-br from-pink-300 to-rose-400 rounded hover-scale flex items-center justify-center text-white text-2xl">
+                        💒
+                    </div>
+                </div>
+                <div class="scroll-reveal animate-stagger-1">
+                    <div
+                        class="w-full h-48 bg-gradient-to-br from-blue-300 to-cyan-400 rounded hover-scale flex items-center justify-center text-white text-2xl">
+                        🍽️
+                    </div>
+                </div>
+                <div class="scroll-reveal animate-stagger-2">
+                    <div
+                        class="w-full h-48 bg-gradient-to-br from-green-300 to-lime-400 rounded hover-scale flex items-center justify-center text-white text-2xl">
+                        🌳
+                    </div>
+                </div>
+                <div class="scroll-reveal animate-stagger-3">
+                    <div
+                        class="w-full h-48 bg-gradient-to-br from-purple-300 to-violet-400 rounded hover-scale flex items-center justify-center text-white text-2xl">
+                        🏢
+                    </div>
+                </div>
+                <div class="scroll-reveal animate-stagger-4">
+                    <div
+                        class="w-full h-48 bg-gradient-to-br from-yellow-300 to-orange-400 rounded hover-scale flex items-center justify-center text-white text-2xl">
+                        🎂
+                    </div>
+                </div>
+                <div class="scroll-reveal animate-stagger-5">
+                    <div
+                        class="w-full h-48 bg-gradient-to-br from-red-300 to-pink-400 rounded hover-scale flex items-center justify-center text-white text-2xl">
+                        💕
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4 scroll-reveal">
+                <a href="#" class="btn btn-secondary">View Full Gallery</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust & Social Proof Section -->
+    <section class="section section-trust" aria-labelledby="trust-title">
+        <div class="container">
+            <div class="text-center mb-4 scroll-reveal">
+                <h2 id="trust-title">Trusted by Thousands</h2>
+                <p class="lead">See what our clients say about their unforgettable experiences</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                <div class="scroll-reveal">
+                    <blockquote class="bg-white p-4 rounded-lg shadow-md">
+                        <p class="italic mb-3">"Hublievents transformed our wedding into a fairy tale. Every detail was
+                            perfection."</p>
+                        <cite class="text-primary font-semibold">- Sarah & Raj, Mumbai</cite>
+                    </blockquote>
+                </div>
+                <div class="scroll-reveal animate-stagger-1">
+                    <blockquote class="bg-white p-4 rounded-lg shadow-md">
+                        <p class="italic mb-3">"Professional, creative, and absolutely stunning results. Highly
+                            recommended!"</p>
+                        <cite class="text-primary font-semibold">- TechCorp Events</cite>
+                    </blockquote>
+                </div>
+                <div class="scroll-reveal animate-stagger-2">
+                    <blockquote class="bg-white p-4 rounded-lg shadow-md">
+                        <p class="italic mb-3">"The attention to detail and quality of work is unparalleled. Truly
+                            luxury experience."</p>
+                        <cite class="text-primary font-semibold">- Priya, Delhi</cite>
+                    </blockquote>
+                </div>
+            </div>
+
+            <div class="text-center scroll-reveal">
+                <div class="flex justify-center items-center gap-4 text-sm opacity-75">
+                    <span>⭐⭐⭐⭐⭐ 4.9/5 Rating</span>
+                    <span>•</span>
+                    <span>500+ Happy Clients</span>
+                    <span>•</span>
+                    <span>10+ Years Experience</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section section-cta" aria-labelledby="cta-title">
+        <div class="container text-center">
+            <div class="scroll-reveal">
+                <h2 id="cta-title" class="text-white mb-3">Ready to Create Magic?</h2>
+                <p class="lead text-white mb-4">Let's bring your vision to life with our expert craftsmanship and
+                    personalized service</p>
+                <a href="#contact" class="btn btn-secondary">Book Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="section-footer" role="contentinfo">
+        <div class="container">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div>
+                    <a href="/" class="brand-logo mb-3 block">Hublievents</a>
+                    <p class="text-sm opacity-75">Crafting luxury event experiences since 2014</p>
+                </div>
+
+                <div>
+                    <h4 class="text-white mb-3">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-sm hover:text-accent">Wedding Decor</a></li>
+                        <li><a href="#" class="text-sm hover:text-accent">Corporate Events</a></li>
+                        <li><a href="#" class="text-sm hover:text-accent">Custom Design</a></li>
+                        <li><a href="#" class="text-sm hover:text-accent">Event Planning</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white mb-3">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-sm hover:text-accent">About Us</a></li>
+                        <li><a href="#" class="text-sm hover:text-accent">Our Team</a></li>
+                        <li><a href="#" class="text-sm hover:text-accent">Careers</a></li>
+                        <li><a href="#" class="text-sm hover:text-accent">Press</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white mb-3">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="text-sm">📧 hello@hublievents.com</li>
+                        <li class="text-sm">📱 +91 98765 43210</li>
+                        <li class="text-sm">📍 Hubli, Karnataka, India</li>
+                    </ul>
+                    <div class="flex gap-2 mt-3">
+                        <a href="#" aria-label="Follow us on Instagram" class="text-white hover:text-accent">📷</a>
+                        <a href="#" aria-label="Follow us on Facebook" class="text-white hover:text-accent">📘</a>
+                        <a href="#" aria-label="Follow us on Pinterest" class="text-white hover:text-accent">📌</a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-4 opacity-25">
+
+            <div class="flex flex-col md:flex-row justify-between items-center text-sm opacity-75">
+                <p>&copy; 2024 Hublievents. All rights reserved.</p>
+                <div class="flex gap-4 mt-2 md:mt-0">
+                    <a href="#" class="hover:text-accent">Privacy Policy</a>
+                    <a href="#" class="hover:text-accent">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript will be injected by webpack -->
+
+    <!-- Service Worker Registration -->
+    <script>
+        // Register Service Worker for PWA functionality
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(function (registration) {
+                        console.log('[SW] Registered successfully:', registration.scope);
+
+                        // Handle updates
+                        registration.addEventListener('updatefound', function () {
+                            const newWorker = registration.installing;
+                            if (newWorker) {
+                                newWorker.addEventListener('statechange', function () {
+                                    if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                        // New version available
+                                        if (confirm('A new version is available. Reload to update?')) {
+                                            window.location.reload();
+                                        }
+                                    }
+                                });
+                            }
+                        });
+                    })
+                    .catch(function (error) {
+                        console.log('[SW] Registration failed:', error);
+                    });
+            });
+        }
+
+        // PWA Install Prompt
+        let deferredPrompt;
+        const installButton = document.createElement('button');
+
+        window.addEventListener('beforeinstallprompt', function (e) {
+            e.preventDefault();
+            deferredPrompt = e;
+
+            // Show install button after 30 seconds
+            setTimeout(() => {
+                showInstallPrompt();
+            }, 30000);
+        });
+
+        function showInstallPrompt() {
+            if (!installButton.parentNode) {
+                installButton.innerHTML = '📱 Install App';
+                installButton.className = 'btn btn-primary install-prompt';
+                installButton.style.cssText = `
+                    position: fixed;
+                    bottom: 20px;
+                    right: 20px;
+                    z-index: 1000;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                    animation: slideInUp 0.5s ease-out;
+                `;
+
+                installButton.addEventListener('click', function () {
+                    if (deferredPrompt) {
+                        deferredPrompt.prompt();
+                        deferredPrompt.userChoice.then(function (choiceResult) {
+                            if (choiceResult.outcome === 'accepted') {
+                                console.log('[PWA] User accepted the install prompt');
+                            } else {
+                                console.log('[PWA] User dismissed the install prompt');
+                            }
+                            deferredPrompt = null;
+                            installButton.remove();
+                        });
+                    }
+                });
+
+                document.body.appendChild(installButton);
+
+                // Auto-hide after 10 seconds
+                setTimeout(() => {
+                    if (installButton.parentNode) {
+                        installButton.remove();
+                    }
+                }, 10000);
+            }
+        }
+
+        // Performance monitoring
+        if ('PerformanceObserver' in window) {
+            // Monitor Largest Contentful Paint (LCP)
+            const lcpObserver = new PerformanceObserver((list) => {
+                const entries = list.getEntries();
+                const lastEntry = entries[entries.length - 1];
+                console.log('[Performance] LCP:', lastEntry.startTime, 'ms');
+            });
+            lcpObserver.observe({ entryTypes: ['largest-contentful-paint'] });
+
+            // Monitor First Input Delay (FID)
+            const fidObserver = new PerformanceObserver((list) => {
+                const entries = list.getEntries();
+                entries.forEach((entry) => {
+                    console.log('[Performance] FID:', entry.processingStart - entry.startTime, 'ms');
+                });
+            });
+            fidObserver.observe({ entryTypes: ['first-input'] });
+
+            // Monitor Cumulative Layout Shift (CLS)
+            let clsValue = 0;
+            const clsObserver = new PerformanceObserver((list) => {
+                const entries = list.getEntries();
+                entries.forEach((entry) => {
+                    if (!entry.hadRecentInput) {
+                        clsValue += entry.value;
+                    }
+                });
+                console.log('[Performance] CLS:', clsValue);
+            });
+            clsObserver.observe({ entryTypes: ['layout-shift'] });
+        }
+
+        // Send performance data to service worker for monitoring
+        window.addEventListener('load', function () {
+            if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+                setTimeout(() => {
+                    const perfData = {
+                        type: 'PERFORMANCE_DATA',
+                        url: window.location.href,
+                        loadTime: performance.now(),
+                        navigation: performance.getEntriesByType('navigation')[0]
+                    };
+
+                    navigator.serviceWorker.controller.postMessage(perfData);
+                }, 5000);
+            }
+        });
+    </script>
+</body>
+
+</html>

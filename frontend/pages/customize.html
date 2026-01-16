@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Your Event - Hublievents</title>
+    <meta name="description" content="Create your perfect event decor with our interactive design tool.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,300;0,400;0,600;0,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/customize.css">
+</head>
+
+<body>
+    <!-- Back Navigation -->
+    <nav class="customize-nav">
+        <div class="container">
+            <a href="/" class="back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5"></path>
+                    <path d="M12 19l-7-7 7-7"></path>
+                </svg>
+                Back to Home
+            </a>
+            <div class="nav-actions">
+                <button id="save-design" class="btn btn-outline btn-sm">Save Design</button>
+                <button id="share-design" class="btn btn-outline btn-sm">Share</button>
+                <button id="reset-design" class="btn btn-secondary btn-sm">Reset</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Customization Interface -->
+    <div class="customize-container">
+        <!-- Design Canvas -->
+        <div class="design-canvas" id="design-canvas" role="img" aria-label="Interactive event decor design preview">
+            <!-- Stage Base Layer -->
+            <div class="layer stage-base" data-layer="stage" data-z="1"></div>
+
+            <!-- Backdrop Layer -->
+            <div class="layer backdrop" data-layer="backdrop" data-z="2"></div>
+
+            <!-- Floral Layer -->
+            <div class="layer floral" data-layer="floral" data-z="3"></div>
+
+            <!-- Lighting Layer -->
+            <div class="layer lighting" data-layer="lighting" data-z="4"></div>
+
+            <!-- Props Layer -->
+            <div class="layer props" data-layer="props" data-z="5">
+                <!-- Arch -->
+                <div class="prop arch" data-prop="arch"></div>
+                <!-- Seating -->
+                <div class="prop seating" data-prop="seating"></div>
+            </div>
+
+            <!-- Floor Layer -->
+            <div class="layer floor" data-layer="floor" data-z="6"></div>
+        </div>
+
+        <!-- Control Panel -->
+        <div class="control-panel" role="complementary" aria-label="Design customization controls">
+            <div class="control-header">
+                <h2>Design Your Event</h2>
+                <div class="preset-selector">
+                    <label for="preset-select">Start with a preset:</label>
+                    <select id="preset-select" class="form-input">
+                        <option value="blank">Blank Canvas</option>
+                        <option value="royal-wedding">Royal Wedding</option>
+                        <option value="corporate-elegant">Corporate Elegant</option>
+                        <option value="garden-romance">Garden Romance</option>
+                        <option value="modern-luxury">Modern Luxury</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="control-sections">
+                <!-- Stage Shape -->
+                <div class="control-section">
+                    <h3>Stage Shape</h3>
+                    <div class="option-grid">
+                        <button class="option-btn" data-control="stage" data-value="classic-rectangular">
+                            <div class="option-preview stage-rectangular"></div>
+                            <span>Classic Rectangular</span>
+                        </button>
+                        <button class="option-btn active" data-control="stage" data-value="royal-arch">
+                            <div class="option-preview stage-arch"></div>
+                            <span>Royal Arch</span>
+                        </button>
+                        <button class="option-btn" data-control="stage" data-value="circular">
+                            <div class="option-preview stage-circular"></div>
+                            <span>Circular</span>
+                        </button>
+                        <button class="option-btn" data-control="stage" data-value="hexagonal">
+                            <div class="option-preview stage-hexagonal"></div>
+                            <span>Hexagonal</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Color Theme -->
+                <div class="control-section">
+                    <h3>Color Theme</h3>
+                    <div class="color-swatches">
+                        <button class="color-swatch" data-control="colors" data-value="ivory-gold"
+                            style="background: linear-gradient(45deg, #F5F5DC, #D4AF37);">
+                            <span>Ivory & Gold</span>
+                        </button>
+                        <button class="color-swatch active" data-control="colors" data-value="maroon-gold"
+                            style="background: linear-gradient(45deg, #8B1538, #D4AF37);">
+                            <span>Maroon & Gold</span>
+                        </button>
+                        <button class="color-swatch" data-control="colors" data-value="navy-silver"
+                            style="background: linear-gradient(45deg, #1B1F3B, #C0C0C0);">
+                            <span>Navy & Silver</span>
+                        </button>
+                        <button class="color-swatch" data-control="colors" data-value="rose-gold"
+                            style="background: linear-gradient(45deg, #E6B3C5, #D4AF37);">
+                            <span>Rose & Gold</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Floral Density -->
+                <div class="control-section">
+                    <h3>Floral Density</h3>
+                    <div class="slider-control">
+                        <input type="range" id="floral-density" min="0" max="5" value="3" class="slider">
+                        <div class="slider-labels">
+                            <span>Minimal</span>
+                            <span>Moderate</span>
+                            <span>Abundant</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lighting Mood -->
+                <div class="control-section">
+                    <h3>Lighting Mood</h3>
+                    <div class="option-grid">
+                        <button class="option-btn" data-control="lighting" data-value="warm">
+                            <div class="option-preview lighting-warm"></div>
+                            <span>Warm</span>
+                        </button>
+                        <button class="option-btn active" data-control="lighting" data-value="cool">
+                            <div class="option-preview lighting-cool"></div>
+                            <span>Cool</span>
+                        </button>
+                        <button class="option-btn" data-control="lighting" data-value="dramatic">
+                            <div class="option-preview lighting-dramatic"></div>
+                            <span>Dramatic</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Fabric Type -->
+                <div class="control-section">
+                    <h3>Fabric Type</h3>
+                    <div class="option-grid">
+                        <button class="option-btn active" data-control="fabric" data-value="silk">
+                            <div class="option-preview fabric-silk"></div>
+                            <span>Silk</span>
+                        </button>
+                        <button class="option-btn" data-control="fabric" data-value="velvet">
+                            <div class="option-preview fabric-velvet"></div>
+                            <span>Velvet</span>
+                        </button>
+                        <button class="option-btn" data-control="fabric" data-value="satin">
+                            <div class="option-preview fabric-satin"></div>
+                            <span>Satin</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Arch Style -->
+                <div class="control-section">
+                    <h3>Arch Style</h3>
+                    <div class="option-grid">
+                        <button class="option-btn active" data-control="arch" data-value="classic">
+                            <div class="option-preview arch-classic"></div>
+                            <span>Classic</span>
+                        </button>
+                        <button class="option-btn" data-control="arch" data-value="floral">
+                            <div class="option-preview arch-floral"></div>
+                            <span>Floral</span>
+                        </button>
+                        <button class="option-btn" data-control="arch" data-value="modern">
+                            <div class="option-preview arch-modern"></div>
+                            <span>Modern</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Seating Style -->
+                <div class="control-section">
+                    <h3>Seating Style</h3>
+                    <div class="option-grid">
+                        <button class="option-btn active" data-control="seating" data-value="classic">
+                            <div class="option-preview seating-classic"></div>
+                            <span>Classic</span>
+                        </button>
+                        <button class="option-btn" data-control="seating" data-value="luxury">
+                            <div class="option-preview seating-luxury"></div>
+                            <span>Luxury</span>
+                        </button>
+                        <button class="option-btn" data-control="seating" data-value="contemporary">
+                            <div class="option-preview seating-contemporary"></div>
+                            <span>Contemporary</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Floor Pattern -->
+                <div class="control-section">
+                    <h3>Floor Pattern</h3>
+                    <div class="option-grid">
+                        <button class="option-btn" data-control="floor" data-value="plain">
+                            <div class="option-preview floor-plain"></div>
+                            <span>Plain</span>
+                        </button>
+                        <button class="option-btn active" data-control="floor" data-value="floral">
+                            <div class="option-preview floor-floral"></div>
+                            <span>Floral</span>
+                        </button>
+                        <button class="option-btn" data-control="floor" data-value="geometric">
+                            <div class="option-preview floor-geometric"></div>
+                            <span>Geometric</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="control-footer">
+                <button id="get-quote" class="btn btn-primary">Get Quote</button>
+                <button id="book-consultation" class="btn btn-secondary">Book Consultation</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Undo/Redo Controls -->
+    <div class="undo-redo-controls">
+        <button id="undo-btn" class="control-btn" disabled aria-label="Undo last change">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 7v6h6"></path>
+                <path d="M21 17a9 9 0 00-9-9 9 9 0 00-6 2.3L3 13"></path>
+            </svg>
+        </button>
+        <button id="redo-btn" class="control-btn" disabled aria-label="Redo last change">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 7v6h-6"></path>
+                <path d="M3 17a9 9 0 009-9 9 9 0 006-2.3L21 13"></path>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay" style="display: none;">
+        <div class="loading-spinner"></div>
+        <p>Updating your design...</p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/state.js"></script>
+    <script src="../js/customize-engine.js"></script>
+    <script src="../js/customize-ui.js"></script>
+    <script src="../js/customize-render.js"></script>
+</body>
+
+</html>

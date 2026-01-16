@@ -1,0 +1,125 @@
+<div class="page-header">
+    <h1>Dashboard Overview</h1>
+    <p>Welcome to your business control panel</p>
+</div>
+
+<div class="stats-grid">
+    <!-- Key Metrics -->
+    <div class="stat-card">
+        <div class="stat-icon">📝</div>
+        <div class="stat-content">
+            <h3 id="total-enquiries">-</h3>
+            <p>Total Enquiries</p>
+            <span class="stat-change" id="enquiries-change"></span>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon">🎨</div>
+        <div class="stat-content">
+            <h3 id="active-designs">-</h3>
+            <p>Active Designs</p>
+            <span class="stat-change" id="designs-change"></span>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon">👥</div>
+        <div class="stat-content">
+            <h3 id="total-users">-</h3>
+            <p>Total Users</p>
+            <span class="stat-change" id="users-change"></span>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon">💰</div>
+        <div class="stat-content">
+            <h3 id="monthly-revenue">₹0</h3>
+            <p>Monthly Revenue</p>
+            <span class="stat-change" id="revenue-change"></span>
+        </div>
+    </div>
+</div>
+
+<div class="dashboard-charts">
+    <!-- Charts Row -->
+    <div class="chart-container">
+        <div class="chart-header">
+            <h3>Enquiry Trends</h3>
+            <select id="enquiry-period" class="chart-filter">
+                <option value="7">Last 7 days</option>
+                <option value="30" selected>Last 30 days</option>
+                <option value="90">Last 90 days</option>
+            </select>
+        </div>
+        <canvas id="enquiry-chart" width="400" height="200"></canvas>
+    </div>
+
+    <div class="chart-container">
+        <div class="chart-header">
+            <h3>Design Status Distribution</h3>
+        </div>
+        <canvas id="design-chart" width="400" height="200"></canvas>
+    </div>
+</div>
+
+<div class="dashboard-tables">
+    <!-- Recent Activity -->
+    <div class="table-section">
+        <div class="table-header">
+            <h3>Recent Activity</h3>
+            <a href="#activity" class="view-all">View All</a>
+        </div>
+        <div class="table-responsive">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                        <th>Resource</th>
+                        <th>Admin</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody id="recent-activity">
+                    <!-- Activity rows will be populated here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Pending Items -->
+    <div class="table-section">
+        <div class="table-header">
+            <h3>Pending Actions</h3>
+        </div>
+        <div class="pending-items">
+            <div class="pending-item">
+                <div class="pending-icon">⏳</div>
+                <div class="pending-content">
+                    <h4 id="pending-enquiries">-</h4>
+                    <p>Pending Enquiries</p>
+                </div>
+                <a href="#enquiries" class="btn btn-sm">Review</a>
+            </div>
+
+            <div class="pending-item">
+                <div class="pending-icon">🖼️</div>
+                <div class="pending-content">
+                    <h4 id="pending-gallery">-</h4>
+                    <p>Gallery Approvals</p>
+                </div>
+                <a href="#gallery" class="btn btn-sm">Review</a>
+            </div>
+
+            <div class="pending-item">
+                <div class="pending-icon">🎨</div>
+                <div class="pending-content">
+                    <h4 id="pending-designs">-</h4>
+                    <p>Design Reviews</p>
+                </div>
+                <a href="#designs" class="btn btn-sm">Review</a>
+            </div>
+        </div>
+    </div>
+</div>
